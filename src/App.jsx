@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
+import { InputSearch } from "./components/InputSearch";
+import { usePagination } from "./hooks/usePagination";
+import { PagButton } from "./components/PagButton";
+
+const apiAuth =
+  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzhmYjdhMTFjMzg2NzQ1NTYwOWMzNDAyZDNkOTRhNyIsInN1YiI6IjYzZjc2ODk0NjhiMWVhMDA4NjY4ZWEzYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ox_CM6NqrUArhnLWd0Q2vGEB1A2YR8UpMVS8BZ6zsng";
 
 function App() {
+  const { page, onPreviousPage, onNextPage } = usePagination();
   const [movies, setMovies] = useState([]);
-  const [page, setPages] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -10,8 +16,7 @@ function App() {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzhmYjdhMTFjMzg2NzQ1NTYwOWMzNDAyZDNkOTRhNyIsInN1YiI6IjYzZjc2ODk0NjhiMWVhMDA4NjY4ZWEzYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ox_CM6NqrUArhnLWd0Q2vGEB1A2YR8UpMVS8BZ6zsng",
+          Authorization: { auth: apiAuth },
         },
       };
 
@@ -25,7 +30,7 @@ function App() {
         }
         const data = await response.json();
         setMovies(data.results);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -34,19 +39,14 @@ function App() {
     fetchData();
   }, [page]);
 
-  const onNextPage = () => {
-    setPages(page + 1);
-  };
-  const onPreviousPage = () => {
-    setPages(page - 1);
-  };
-
   return (
     <div>
       <h1 className="text-red-500 text-center my-10 text-3xl">Movies App</h1>
-      <hr />
 
-      <div className="flex mx-16  flex-wrap gap-7  ">
+      <InputSearch />
+
+      <hr />
+      <div className="flex mx-16 mt-6  flex-wrap gap-7  ">
         {movies.map((movie) => (
           <div className="mx-auto w-40" key={movie.id}>
             {movie.title}
@@ -61,18 +61,12 @@ function App() {
       </div>
 
       <div className="mx-20 my-16 flex justify-between">
-        <button
+        <PagButton
+          disabled={page <= 1}
+          label={"Atras"}
           onClick={onPreviousPage}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-        >
-          Atras
-        </button>
-        <button
-          onClick={onNextPage}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-        >
-          Siguiente
-        </button>
+        />
+        <PagButton label={"Siguiente"} onClick={onNextPage} />
       </div>
     </div>
   );
