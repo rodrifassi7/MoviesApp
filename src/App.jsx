@@ -49,12 +49,14 @@ function App() {
       <div className="flex mx-16 mt-6  flex-wrap gap-7  ">
         {movies.map((movie) => (
           <div className="mx-auto w-40" key={movie.id}>
-            {movie.title}
+            {/* {movie.title} */}
+            <a href="#">
             <img
               className="h-60 w-60"
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.overview}
             />
+            </a>
             {/* descripcion : {movie.overview} */}
           </div>
         ))}
