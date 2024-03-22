@@ -2,8 +2,8 @@ export const PagButton = ({ onClick, label, disabled }) => {
   return (
     <button
       onClick={onClick}
-      disabled={disabled} // Agrega la prop disabled
-      className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline ${
+      disabled={disabled} 
+      className={`inline-flex border items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg hover:bg-velde hover:text-black hover:border-black ${
         disabled ? "opacity-50 cursor-not-allowed" : ""
       }`}
     >

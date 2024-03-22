@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { InputSearch } from "./components/InputSearch";
-import { usePagination } from "./hooks/usePagination";
-import { PagButton } from "./components/PagButton";
+import { usePagination } from "../hooks/usePagination";
+import { Poster } from "../components/Poster";
+import { PagButton } from "../components/PagButton";
+import { Footer } from "./Footer";
 
-const apiAuth =
-  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzhmYjdhMTFjMzg2NzQ1NTYwOWMzNDAyZDNkOTRhNyIsInN1YiI6IjYzZjc2ODk0NjhiMWVhMDA4NjY4ZWEzYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ox_CM6NqrUArhnLWd0Q2vGEB1A2YR8UpMVS8BZ6zsng";
-
-function App() {
+export const Home = () => {
   const { page, onPreviousPage, onNextPage } = usePagination();
   const [movies, setMovies] = useState([]);
 
@@ -16,7 +14,8 @@ function App() {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization: { auth: apiAuth },
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MGQ2ZGM2YzVjOWE0YzQ1YmJlMmEwMDU4Mzg4ZmQ0YyIsInN1YiI6IjYzZjc2ODk0NjhiMWVhMDA4NjY4ZWEzYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jDSsVhxkand5frgGCkUf_vr-MLOhsDDxu44w3nAXlyU",
         },
       };
 
@@ -41,28 +40,13 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-red-500 text-center my-10 text-3xl">Movies App</h1>
-
-      <InputSearch />
-
-      <hr />
-      <div className="flex mx-16 mt-6  flex-wrap gap-7  ">
+      <div className="flex mx-16 flex-wrap gap-7">
         {movies.map((movie) => (
-          <div className="mx-auto w-40" key={movie.id}>
-            {/* {movie.title} */}
-            <a href="#">
-            <img
-              className="h-60 w-60"
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.overview}
-            />
-            </a>
-            {/* descripcion : {movie.overview} */}
-          </div>
+          <Poster key={movie.id} movie={movie} />
         ))}
       </div>
 
-      <div className="mx-20 my-16 flex justify-between">
+      <div className="mx-20 py-16 flex justify-between">
         <PagButton
           disabled={page <= 1}
           label={"Atras"}
@@ -70,8 +54,8 @@ function App() {
         />
         <PagButton label={"Siguiente"} onClick={onNextPage} />
       </div>
+      <Footer />
     </div>
-  );
-}
 
-export default App;
+  );
+};

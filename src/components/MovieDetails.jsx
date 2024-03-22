@@ -1,5 +1,5 @@
 
-export const MovieDetails = () => {
+export const MovieDetails = ({movie}) => {
   return (
     <div>HOLIS</div>
   )
