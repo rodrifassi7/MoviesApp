@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { usePagination } from "../hooks/usePagination";
-import { Poster } from "../components/Poster";
-import { PagButton } from "../components/PagButton";
+import { Poster, PagButton  } from "../components"
 import { Footer } from "./Footer";
 
 export const Home = () => {

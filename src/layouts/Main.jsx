@@ -16,6 +16,16 @@ export const MainApp = () => {
         <Route path="/*" element={<Navigate to="/" />} />
         <Route path="/movieDetails" element={<MovieDetails />} />
       </Routes>
+
+
+
+
+
+      {/* <React.StrictMode>
+    <BrowserRouter>
+      <HeroesApp />
+    </BrowserRouter>
+  </React.StrictMode> */}
     </>
   );
 };
