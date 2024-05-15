@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
-import { MainApp } from "./layouts/Main.jsx";
+import { MainApp } from "./movies/pages/Main";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>

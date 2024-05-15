@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Home } from "./Home";
-import { NavBar } from "./NavBar";
-import { MovieDetails } from "../components/MovieDetails";
+import { Home } from "../../layouts/Home";
+import { NavBar } from "../../layouts/NavBar";
+import { MovieDetails } from "./MovieDetails";
 
 export const MainApp = () => {
   return (
@@ -14,12 +14,9 @@ export const MainApp = () => {
         <Route path="/" element={<Home />} />
 
         <Route path="/*" element={<Navigate to="/" />} />
-        <Route path="/movieDetails" element={<MovieDetails />} />
+        {/* <Route path="/movieDetails" element={<MovieDetails />} /> */}
+        <Route path="/movieDetails/:id" element={<MovieDetails />} />
       </Routes>
-
-
-
-
 
       {/* <React.StrictMode>
     <BrowserRouter>
