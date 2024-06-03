@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 export const Poster = ({ movie }) => {
-
- 
   if (!movie) {
     return "ERRRR";
   }
@@ -12,7 +10,7 @@ export const Poster = ({ movie }) => {
     : "";
 
   return (
-    <div className="mx-auto w-40 hover:scale-105 pt-6 transition-transform duration-200">
+    <div className="mx-auto w-40 hover:scale-110 pt-6 transition-transform duration-300">
       {/* <Link to={"/movieDetails"}> */}
       <Link
         to={{
@@ -20,7 +18,6 @@ export const Poster = ({ movie }) => {
           state: { movie },
         }}
       >
-
         {posterPath && (
           <img
             className="h-60 w-60 rounded-md"

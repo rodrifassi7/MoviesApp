@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className="mx-auto max-w-screen-xl">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="https://flowbite.com" className="flex items-center">
+            <a href="#" className="flex items-center">
               <img
                 src="https://flowbite.com/docs/images/logo.svg"
                 className="mr-3 h-8"
@@ -27,13 +27,13 @@ export const Footer = () => {
               </h2>
               <ul className="text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="https://flowbite.com" className="hover:underline">
-                  MovieApp
+                  <a href="#" className="hover:underline">
+                    MovieApp
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://tailwindcss.com/"
+                    href="#"
                     className="hover:underline"
                   >
                     Tailwind CSS

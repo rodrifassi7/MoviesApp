@@ -1,7 +1,6 @@
 import "../styles/navStyles.css";
-import { InputSearch } from "../components/InputSearch";
-
- 
+import { InputSearch } from "./InputSearch";
+import { Link } from "react-router-dom";
 
 export const NavBar = () => {
   return (
@@ -12,13 +11,13 @@ export const NavBar = () => {
       <div className=" sm:flex flex-grow justify-around  gap-10 ">
         <ul className="flex gap-10 ">
           <li className="hover:scale-110 max-h-1 hover:text-velde transition-all">
-          <a href="#">Peliculas</a>
+            <Link to="/peliculas">Peliculas</Link>
           </li>
           <li className="hover:scale-110 max-h-1 hover:text-velde transition-all">
-            <a href="#">Series</a>
+            <Link to="/series">Series</Link>
           </li>
           <li className="hover:scale-110 max-h-1 hover:text-velde transition-all">
-            <a href="#">Novedades</a>
+            <Link to="/novedades">Novedades</Link>
           </li>
         </ul>
         <div>

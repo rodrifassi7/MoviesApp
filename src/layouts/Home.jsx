@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { usePagination } from "../hooks/usePagination";
-import { Poster, PagButton  } from "../components"
-import { Footer } from "./Footer";
+import { Poster, PagButton, Footer } from "../components";
+
 
 export const Home = () => {
   const { page, onPreviousPage, onNextPage } = usePagination();
@@ -39,7 +39,7 @@ export const Home = () => {
 
   return (
     <div>
-      <div className="flex mx-16 flex-wrap gap-7">
+      <div className="flex md:mx-16 flex-wrap md:gap-7 gap-3">
         {movies.map((movie) => (
           <Poster key={movie.id} movie={movie} />
         ))}
@@ -55,6 +55,5 @@ export const Home = () => {
       </div>
       <Footer />
     </div>
-
   );
 };

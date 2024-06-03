@@ -1,5 +1,4 @@
-
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams } from "react-router-dom";
 
 export const MovieDetails = () => {
   const { id } = useParams();
@@ -9,16 +8,16 @@ export const MovieDetails = () => {
   if (!movie || movie.id !== parseInt(id, 10)) {
     return <div>Loading...</div>;
   }
-console.log(movie)
+  console.log(movie);
   return (
     <div>
       <h1>{movie.original_title}</h1>
-      <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.overview} />
+      <img
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        alt={movie.overview}
+      />
       <p>{movie.overview}</p>
       <p>Rating: {movie.vote_average}</p>
-      {/* Añade otros detalles según sea necesario */}
     </div>
   );
 };
-
-
