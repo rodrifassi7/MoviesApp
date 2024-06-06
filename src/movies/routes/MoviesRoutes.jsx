@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { NavBar, Footer } from "../components";
 import { Peliculas, Series, MovieDetails } from "../pages";
+import { Home } from "../../layouts/Home";
 
 export const MoviesRoutes = () => {
   return (
@@ -12,9 +13,9 @@ export const MoviesRoutes = () => {
         </div>
         <Routes>
           <Route path="/*" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/peliculas" element={<Peliculas />} />
           <Route path="/series" element={<Series />} />
-          <Route path="/novedades" element={<Series />} />
           <Route path="/movieDetails/:id" element={<MovieDetails />} />
         </Routes>
         <Footer />

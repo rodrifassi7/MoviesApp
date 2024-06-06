@@ -1,7 +1,7 @@
 import "../../styles/navStyles.css";
+import { NavLink } from "react-router-dom";
 import { Avatar } from "./Avatar";
 import { InputSearch } from "./InputSearch";
-import { NavLink } from "react-router-dom";
 import { Logo } from "./Logo";
 
 export const NavBar = () => {
@@ -10,9 +10,19 @@ export const NavBar = () => {
       id="header-nav"
       className=" h-16 flex  fixed top-0 w-screen  border-b-2 border-velde text-white z-10 px-6 items-center"
     >
-      <div className="  flex flex-grow sm:justify-between pt-3">
-        <ul className="flex sm:gap-10 items-start">
-          <Logo />
+      <div className="  flex flex-grow sm:justify-around ">
+        <Logo />
+        <ul className="flex sm:gap-20 items-start pt-2">
+          <NavLink
+            className={({ isActive }) =>
+              `hover:scale-110 max-h-1 hover:text-velde transition-all ${
+                isActive ? "text-velde" : ""
+              }`
+            }
+            to="/home"
+          >
+            Home
+          </NavLink>
 
           <NavLink
             className={({ isActive }) =>
@@ -33,16 +43,6 @@ export const NavBar = () => {
             to="/series"
           >
             Series
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `hover:scale-110 max-h-1 hover:text-velde transition-all ${
-                isActive ? "text-velde" : ""
-              }`
-            }
-            to="/novedades"
-          >
-            Novedades
           </NavLink>
         </ul>
         <div className="flex  gap-4 ">

@@ -3,6 +3,8 @@ export * from "./PagButton";
 export * from "./Poster";
 export * from "./NavBar";
 export * from "./Footer";
+export * from "./Avatar";
+
 
 
 

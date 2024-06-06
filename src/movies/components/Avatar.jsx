@@ -1,11 +1,18 @@
 import { useState } from "react";
 import retrato from "../../assets/images/retrato.jpg";
+import { useNavigate } from "react-router-dom";
 
 export const Avatar = () => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const navigate = useNavigate();
 
   const toggleDropdown = () => {
     setDropdownVisible(!isDropdownVisible);
+  };
+  const onLogOut = () => {
+    navigate('/login', {
+      replace: true
+    })
   };
 
   return (
@@ -15,15 +22,11 @@ export const Avatar = () => {
         type="button"
         data-dropdown-toggle="userDropdown"
         data-dropdown-placement="bottom-start"
-        className="w-10 h-10 rounded-full cursor-pointer"
+        className="w-10 h-10 rounded-2xl cursor-pointer"
         src={retrato}
         alt="User dropdown"
         onClick={toggleDropdown}
       />
-
-
-
-
 
       <div
         id="userDropdown"
@@ -68,6 +71,7 @@ export const Avatar = () => {
           <a
             href="#"
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+            onClick={onLogOut}
           >
             Cerrar sesión
           </a>
