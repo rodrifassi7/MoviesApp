@@ -1,33 +1,53 @@
 import "../../styles/navStyles.css";
+import { Avatar } from "./Avatar";
 import { InputSearch } from "./InputSearch";
 import { NavLink } from "react-router-dom";
+import { Logo } from "./Logo";
 
 export const NavBar = () => {
   return (
     <nav
       id="header-nav"
-      className=" h-20 flex items-center fixed top-0 w-screen justify-evenly border-b-2 border-velde text-white z-10"
+      className=" h-16 flex  fixed top-0 w-screen  border-b-2 border-velde text-white z-10 px-6 items-center"
     >
-      <div className=" sm:flex flex-grow justify-around  gap-10 ">
-        <ul className="flex gap-10 ">
-          <NavLink className={({isActive}) => `hover:scale-110 max-h-1 hover:text-velde transition-all ${isActive ? 'text-velde' : ''}`}
+      <div className="  flex flex-grow sm:justify-between pt-3">
+        <ul className="flex sm:gap-10 items-start">
+          <Logo />
+
+          <NavLink
+            className={({ isActive }) =>
+              `hover:scale-110 max-h-1 hover:text-velde transition-all ${
+                isActive ? "text-velde" : ""
+              }`
+            }
             to="/peliculas"
-            >
-           Peliculas
+          >
+            Peliculas
           </NavLink>
-          <NavLink className={({isActive}) => `hover:scale-110 max-h-1 hover:text-velde transition-all ${isActive ? 'text-velde' : ''}`}
+          <NavLink
+            className={({ isActive }) =>
+              `hover:scale-110 max-h-1 hover:text-velde transition-all ${
+                isActive ? "text-velde" : ""
+              }`
+            }
             to="/series"
-            >
-           Series
+          >
+            Series
           </NavLink>
-          <NavLink className={({isActive}) => `hover:scale-110 max-h-1 hover:text-velde transition-all ${isActive ? 'text-velde' : ''}`}
+          <NavLink
+            className={({ isActive }) =>
+              `hover:scale-110 max-h-1 hover:text-velde transition-all ${
+                isActive ? "text-velde" : ""
+              }`
+            }
             to="/novedades"
-            >
-           Novedades
+          >
+            Novedades
           </NavLink>
         </ul>
-        <div>
+        <div className="flex  gap-4 ">
           <InputSearch />
+          <Avatar />
         </div>
       </div>
     </nav>
