@@ -1,7 +1,5 @@
-import { GitHub } from "../assets/icons/GitHub";
-import { Twitter } from "../assets/icons/Twitter";
-import { Instagram } from "../assets/icons/Instagram";
-import { Facebook } from "../assets/icons/Facebook";
+import { Twitter, Facebook, Instagram, GitHub } from "../../assets/icons";
+
 
 export const Footer = () => {
   return (
@@ -32,10 +30,7 @@ export const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:underline"
-                  >
+                  <a href="#" className="hover:underline">
                     Tailwind CSS
                   </a>
                 </li>

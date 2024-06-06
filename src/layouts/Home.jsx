@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { usePagination } from "../hooks/usePagination";
-import { Poster, PagButton, Footer } from "../components";
+import { Poster, PagButton } from "../components";
 
 export const Home = () => {
   const { page, onPreviousPage, onNextPage } = usePagination();
@@ -56,7 +56,6 @@ export const Home = () => {
         />
         <PagButton label={"Siguiente"} onClick={onNextPage} />
       </div>
-      <Footer />
     </div>
   );
 };
