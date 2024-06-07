@@ -11,7 +11,6 @@ export const Poster = ({ movie }) => {
 
   return (
     <div className="mx-auto w-40 hover:scale-110 pt-6 transition-transform duration-300">
-      {/* <Link to={"/movieDetails"}> */}
       <Link
         to={{
           pathname: `/movieDetails/${movie.id}`,

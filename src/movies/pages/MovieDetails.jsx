@@ -8,7 +8,7 @@ export const MovieDetails = () => {
   if (!movie || movie.id !== parseInt(id, 10)) {
     return <div>Loading...</div>;
   }
-  console.log(movie);
+  
   return (
     <div>
       <h1>{movie.original_title}</h1>
